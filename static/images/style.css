@@ -1,0 +1,179 @@
+body {
+    margin:0;
+    background-color: #8ac7e6;
+    width: 100%;
+}
+.div{
+    overflow:auto;
+}
+.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00334d;
+  display:grid;
+  grid-template-columns: 2fr auto auto 1fr 2fr;
+  grid-template-areas:
+  "logo vnfform video . login";
+}
+
+.topnav div a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  font-size: auto;
+  text-decoration: none;
+}
+
+.topnav div a:hover:not(.active) {background-color: #2eb8b8;}
+
+.topnav div a.active {background-color: #4CAF50;}
+
+
+.grid {
+  height: 100vh;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+  "nav nav"
+  "content content"
+  "footer footer";
+  grid-gap:4px;
+}
+
+.nav{
+  grid-area: nav;
+}
+
+.logo{grid-area: logo;}
+.vnfform{grid-area: vnfform;}
+.video{grid-area: video;}
+.login{grid-area: login;}
+.sex{grid-area:  sex;}
+.weightt{grid-area:weightt;}
+.heightt{grid-area:heightt;}
+.strength{grid-area:strength;}
+.experience{grid-area:experience;}
+.age{grid-area:age;}
+.diet{grid-area:diet;}
+.sleep{grid-area:sleep;}
+.stress{grid-area:stress;}
+.hw{grid-area:hw;}
+.hra{grid-area:hra;}
+.getvnfSubmit{grid-area:submit;}
+.pageHeader{grid-area:pageh1;}
+
+#vnftable {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2vw;
+  border-collapse: collapse;
+  grid-area:nvfTable;
+}
+
+.content{
+  text-align: center;
+  grid-area: content;
+  display:grid;
+  grid-template-areas:
+  "pageh1"
+  "nvfTable"
+  ;
+
+}
+#vnftable td, #vnftable th {
+  border: 3px solid #37667d;
+  color: #37667d;
+}
+
+#vnftable tr:nth-child(even){background-color: #91c8e3;}
+#vnftable td:hover {background-color: #bd9c62;}
+#vnftable th {
+  background-color: #37667d;
+  color: white;
+}
+
+.vnfform-control{
+  display:grid;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  font-size:auto;
+  grid-gap:25px;
+  grid-template-columns:auto auto auto auto auto;
+  grid-template-rows:auto auto auto auto auto 1fr;
+  grid-template-areas:
+  ". sex weightt . ."
+  ". heightt strength . ."
+  ". experience age .  ."
+  ". diet sleep stress ."
+  ". hw hra . ."
+  ". . . submit submit";
+  background-color: #5c97b8;
+}
+
+.footer{
+
+  text-align: center;
+  padding: 14px 16px;
+  grid-area: footer;
+  background-color: #456f82;
+}
+
+@media only screen and (max-width: 600px)
+{
+    /*it change navbar*/
+.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00334d;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-rows:1fr 1fr 1fr;
+  grid-template-areas:
+  "logo logo logo login"
+  "video video video video"
+  "vnfform vnfform vnfform vnfform";
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+  "nav nav"
+  "content content"
+  "footer footer";
+}
+
+.vnfform-control{
+  display:grid;
+ font-size:auto;
+  grid-gap:25px;
+  grid-template-columns:1fr;
+  grid-template-rows:1fr;
+  grid-template-areas:
+  "sex"
+  "weightt"
+  "heightt"
+  "strength"
+  "experience"
+  "age"
+  "diet"
+  "sleep"
+  "stress"
+  "hw"
+  "hra"
+  "."
+  "submit";
+  background-color: #5c97b8;
+}
+}

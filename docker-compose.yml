@@ -1,0 +1,12 @@
+version: '3.6'
+servicesunisaAdelaidecup-api:
+    app:
+        container_name: unisaAdelaidecup-api
+        hostname: unisaAdelaidecup-api
+        restart: on-failure:3
+        build:
+            context: .
+            dockerfile: Dockerfile
+                GET_HOST_FROM: dns
+                ports:
+                    - 8080:8080
