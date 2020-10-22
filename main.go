@@ -14,10 +14,7 @@ var templates = template.Must(template.ParseGlob("templates/*.html"))
 
 //A Page structure
 type Page struct {
-	Title string,
-	NUmber float64,
-	amolltitle string,
-	somthing string,
+	Title string
 }
 
 //Display the named template
@@ -28,17 +25,13 @@ func display(w http.ResponseWriter, tmplName string, data interface{}) {
 
 //The handlers will delicate incoming request to display().
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	display(w, "main", &Page{Title: "Home", NUmber: 19, amolltitle: "example"})
+	display(w, "main", &Page{Title: "Home"})
 }
 func videoHandler(w http.ResponseWriter, r *http.Request) {
 	display(w, "video", &Page{Title: "Video"})
 
 }
-func calcHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("this is calcHandler")
-	display(w, "login", &Page{Title: "Video"})
 
-}
 
 //mux stands for "HTTP request multiplexer" it matches incoming requests against a list of registered routes and calls a handler
 //for the route that matches the URL or other conditions
@@ -49,7 +42,7 @@ func handleRequest() {
 	//handlers
 	myRouter.HandleFunc("/", mainHandler)
 	myRouter.HandleFunc("/video", videoHandler)
-	myRouter.HandleFunc("/calc", calcHandler)
+
 
 	//this line loads up anything in our static directory(css, image, icons)
 	myRouter.PathPrefix("/").Handler(http.StripPrefix("/static", http.FileServer(http.Dir("static/"))))
